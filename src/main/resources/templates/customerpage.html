@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <th:block th:insert="layout :: header"></th:block>
+  <link th:href="@{/css/main.css}" rel="stylesheet" />
+
+  <script>
+    function openForm(){
+      document.getElementById("check").style.display="block";
+    }
+    function closeForm() {
+document.getElementById("check").style.display = "none";
+}
+  </script>
+  <style>
+  .n-brand{
+    display: inline-block;
+  border: none;
+  color: #0c0c0d;
+  padding: 0 12px;
+  margin: 10px;
+  text-decoration: none;
+  background: #f2f2f2;
+  font-size: 14pt;
+  cursor:pointer;
+  }
+  .n-brand:hover {background: #e6e6ff;}
+  </style>
+ 
+  <body style="background-image: url(/images/1.jpg); ">
+    <nav
+      th:fragment="navbar"
+      class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <div class="container-fluid">
+        <img th:src="@{/images/images.png}" />
+        <a class="navbar-brand" href="/">BankApp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{'checkbalance/' + ${accountNumber}}"> check balance</a>
+             
+             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#check"> check balance</a>
+             
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#blackout">transfer amount</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#black">diposit amount</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#back">withdrow amount</a>
+            </li>
+            <li class="nav-item">
+             
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      <a class="n-brand" href="/"  style="background-color: rgb(227, 18, 18);">Logout</a>
+    </nav>
+
+    <div>
+      <p></p>
+      <!-- <p>AccountNumber: <span th:text="${accountNumber}"></span></p>
+      <p>Name: <span th:text="${name}"></span></p>
+      <p>City: <span th:text="${city}"></span></p>
+      <p>State: <span th:text="${state}"></span></p>
+      <p>Phoneno: <span th:text="${phoneno}"></span></p>
+      <p>Password: <span th:text="${password}"></span></p> -->
+      <p th:text="${accountNumber}"></p>
+
+      <p th:text="${name}"></p>
+      <p th:text="${city}"></p>
+      <p th:text="${state}"></p>
+      <p th:text="${phoneno}"></p>
+      <p th:text="${password}"></p>
+    </div>
+
+   <!-- ======================== -->
+
+    <div id="blackout">
+      <div id="box">
+        <form action="transferamount" modelAttribute="serverMessage">
+          <div class="form-group">
+            <label for="fromaccount">from account</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fromaccount"
+              aria-describedby="emailHelp"
+              placeholder="from account"
+              name="fromaccount"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="To account">To account</label>
+            <input
+              type="text"
+              class="form-control"
+              id="To account"
+              aria-describedby="emailHelp"
+              placeholder="To account"
+              name="toaccount"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="text"
+              class="form-control"
+              id="amount"
+              aria-describedby="emailHelp"
+              placeholder="amount"
+              name="amount"
+              required
+            />
+          </div>
+          <br />
+      
+         
+            <button type="submit" class="btn btn-success">Transfer</button>
+            
+         
+        </form>
+        
+       
+        <a href="#" class="close">Close</a>
+      </div>
+    </div>
+    <c:if test="${not empty serverMessage}"> 
+      <h3> <p th:text="${serverMessage}"></p></h3>
+        </c:if>
+
+
+        <div id="black">
+          <div id="boxs">
+            <form action="dipositamount">
+              <div class="form-group">
+      
+                <label for="accountNumber">accountNumber</label>
+                <input type="text" class="form-control" id="accountNumber" aria-describedby="emailHelp" placeholder="accountNumber" name ="accountNumber">
+                </div>
+             
+                <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <input type="text" class="form-control" id="amount" aria-describedby="emailHelp" placeholder="amount" name ="amount">
+                  </div>
+              <br>
+              <button type="submit" class="btn btn-success">Diposit</button>
+            </form>
+           
+            <a href="#" class="close">Close</a>
+          </div>
+        </div>
+
+        <c:if test="${not empty serverMessage}"> 
+         <h3> <p th:text="${serverMessage1}"></p></h3>
+         
+        </c:if>
+
+        <!-- ============================================== -->
+
+        <div id="back">
+          <div id="boxss">
+            <form action="withdrawamount">
+              <div class="form-group">
+      
+                <label for="accountNumber">accountNumber</label>
+                <input type="text" class="form-control" id="accountNumber" aria-describedby="emailHelp" placeholder="accountNumber" name ="accountNumber">
+                </div>
+             
+                <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <input type="text" class="form-control" id="amount" aria-describedby="emailHelp" placeholder="amount" name ="amount">
+                  </div>
+              <br>
+              <button type="submit" class="btn btn-success">Withdraw</button>
+            </form>
+           
+            <a href="#" class="close">Close</a>
+          </div>
+        </div> 
+   
+        <c:if test="${not empty serverMessage}"> 
+          <h3><p th:text="${serverMessage2}"></p></h3> 
+        </c:if>
+
+
+       
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <th:block th:insert="layout :: header"></th:block>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    
+  <body style="background-image: url(/images/blog.jpg); ">
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <div class="container-fluid">
+        <img th:src="@{/images/images.png}"/>
+        <a class="navbar-brand" href="/">BankApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            
+          </ul>
+        </div>
+      
+      </div>
+      <img th:src="@{/images/r.png}"/>
+      <a class="navbar-brand" href="/add" style="background-color: rgb(8, 210, 8);">Sign Up</a>
+      <img th:src="@{/images/out.png}"/>
+      <a class="navbar-brand" href="/" style="background-color: rgb(227, 18, 18);">Logout</a>
+    </nav>
+    <div class="container mt-5">
+      <h1 style="color: rgb(3, 26, 27);">Welcome Customer</h1>
+    <form action="customerdetails">
+        <div class="form-group">
+
+          <label for="accountNumber">Account Number</label>
+          <input type="text" class="form-control" id="accountNumber" aria-describedby="accountNumberHelp" placeholder="Enter accountNumber" name ="accountNumber" required>
+          </div>
+ <div class="form-group">
+          <label for="password">password</label>
+          <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Enter password" name ="password" required>
+          </div>
+        
+        <button type="submit" class="btn btn-success">login</button>
+      </form>
+    </div>
+    <h4><p th:text="${message}" ></p></h4>
+   
+  </body>
+</html>

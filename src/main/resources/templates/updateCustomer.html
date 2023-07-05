@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <th:block th:insert="layout :: header"></th:block>
+<body>
+    <div class="container">
+    
+        <th:block th:insert="layout :: navbar"></th:block>
+    <form th:object="${customer}" action="/updatecustomer">
+        <input type="hidden" name="acctid" th:field="*{acctId}"/>
+        <label for="acctId" class="form-label">AcctID</label>
+        <input type="text" class="form-control" id="acctId" required  th:field="*{acctId}"/><br>
+        <label for="custName" class="form-label">CustName</label>
+        <input type="text" class="form-control" id="custName" required  th:field="*{custName}"/><br>
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" required  th:field="*{city}"/><br>
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state" required  th:field="*{state}"/><br>
+        <label for="country" class="form-label">Country</label>
+        <input type="text" class="form-control" id="country" required  th:field="*{country}"/><br>
+        <label for="phoneNo" class="form-label">PhoneNo</label>
+        <input type="text" class="form-control" id="phoneNo" required  th:field="*{phoneNo}"/><br>
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="password" required  th:field="*{password}"/><br>
+        <input type="submit" value="Update Customer" class="btn btn-primary"/>
+     </form> 
+
+    </div>       
+</body>
+</html>

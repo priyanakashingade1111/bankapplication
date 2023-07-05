@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required  th:field="*{name}"/><br>
+        <label for="emailId" class="form-label">EmailId</label>
+        <input type="text" class="form-control" id="emailId" required  th:field="*{emailId}"/><br>
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" required  th:field="*{city}"/><br>
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state" required  th:field="*{state}"/><br>
+        <label for="country" class="form-label">Country</label>
+        <input type="text" class="form-control" id="country" required  th:field="*{country}"/><br>
+        <label for="phoneNo" class="form-label">PhoneNo</label>
+        <input type="text" class="form-control" id="phoneNo" required  th:field="*{phoneNo}"/><br>
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="password" required  th:field="*{password}"/><br>
+        <input type="submit" value="Add Customer" class="btn btn-primary"/>
+     </form> 
+</body>
+</html>

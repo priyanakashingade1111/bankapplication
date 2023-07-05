@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+    <th:block th:insert="layout :: header"></th:block>
+<body>
+   
+    
+        <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+              <img th:src="@{/images/images.png}"/>
+              <a class="navbar-brand" href="/">BankApp</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="/view">view customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/add">add customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/info">Account Info</a>
+              </li> -->
+                </ul>
+              </div>
+            
+            </div>
+          </nav>
+          <div class="container">
+    <form th:object="${customer}" action="/addcustomer">
+        
+        <label for="custName" class="form-label">CustName</label>
+        <input type="text" class="form-control" id="custName" required  th:field="*{custName}"/><br>
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" required  th:field="*{city}"/><br>
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state" required  th:field="*{state}"/><br>
+        <label for="country" class="form-label">Country</label>
+        <input type="text" class="form-control" id="country" required  th:field="*{country}"/><br>
+        <label for="phoneNo" class="form-label">PhoneNo</label>
+        <input type="text" class="form-control" id="phoneNo" required  th:field="*{phoneNo}"/><br>
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="password" required  th:field="*{password}"/><br>
+        <input type="submit" value="Add Customer" class="btn btn-primary"/>
+     </form> 
+
+    </div>       
+</body>
+</html>

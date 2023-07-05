@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <th:block th:insert="layout :: header"></th:block>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <style>
+      /* h1{
+        text-align: center;
+        
+      }
+      p{
+        text-align: center;
+      }
+     a{
+      text-align: center;
+     }
+     button{
+      
+      text-align: center;
+     } */
+     #check {
+        background: rgba(102, 102, 102, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+      #boxx {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid #0000cc;
+        border-radius: 10px;
+        color: #073420;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: #fff;
+      }
+      #check:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #2e9c63;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #847b03;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+      .close:hover {background: #e6e6ff;}
+
+      .n-brand{
+   
+  border: none;
+  color: #0c0c0d;
+  padding: 0 12px;
+  margin: 10px;
+  text-decoration: none;
+  
+  
+  cursor:pointer;
+  }
+  .n-brand:hover {background: #e6e6ff;}
+    </style>
+<body>
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class="container-fluid">
+          <img th:src="@{/images/images.png}"/>
+          <a class="navbar-brand" href="/">BankApp</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              
+            </ul>
+          </div>
+        
+        </div>
+
+        <img th:src="@{/images/out.png}"/>
+      <a class="navbar-brand" href="/" style="background-color: rgb(227, 18, 18);">Logout</a>
+      </nav>
+     
+      
+
+   <div id="check">
+    <div id="boxx">
+      <h1>Your Balance is!</h1>
+      <h1><p th:text="${balance}"></p> </h1><br>
+      <a href="#" class="close">OK</a>
+    </div>
+  </div>
+   
+  <a href="#check">Show</a>
+
+  </div>
+</body>
+</html>
